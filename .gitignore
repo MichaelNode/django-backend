@@ -11,6 +11,8 @@ db.sqlite3
 # Distribution / packaging
 .Python
 env/
+venv/
+cornershop/sqlite.db
 build/
 develop-eggs/
 dist/

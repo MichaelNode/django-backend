@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block head_title %} Menu List {% endblock %}
+
+{% block main_title %} <h1 class="mt-2">Menu</h1> {% endblock %}
+{% block content %}
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Starter</th>
+            <th>Main course </th>
+            <th>Desserts</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for menu in menus %}
+            <tr>
+                <td>{{ menu.starter }}</td>
+                <td>{{ menu.main_course }}</td>
+                <td>{{ menu.desserts }}</td>
+                <td>{{ menu.menu_date }}</td>
+                <td>
+                <a  href="#">details</a>
+                <a  href="#">edit</a>
+                <a  href="#">delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+
+
