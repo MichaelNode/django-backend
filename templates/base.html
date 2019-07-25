@@ -12,22 +12,45 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="{% url 'home' %}">Home<span class="sr-only">(current)</span></a>
+          {% if user.is_authenticated and user.is_superuser %}
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'home' %}">Home<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'menu' %}">Add Menu</a>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Employees
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="{% url 'add_employee' %}">Add employee</a>
+                      <a class="dropdown-item" href="{% url 'list_employee' %}">List employees</a>
+                  </div>
+              </li>
+           {% endif %}
+          {% if user.is_authenticated  %}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Orders
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'order_add' %}">Add Order</a>
+                    <a class="dropdown-item" href="{% url 'order_list' %}">List Orders</a>
+                </div>
+            </li>
+           {% endif %}
+           <li class="nav-item">
+            <a class="nav-link" href="{% url 'menu_today' %}">Today's Menu</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'menu' %}">Add Menu</a>
-          </li>
-
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Usuario
+                User
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 {% if user.is_authenticated %}
@@ -42,6 +65,12 @@
       </div>
     </nav>
     <div class="container">
+      {% if messages %}
+        <hr>
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
       <div class="row justify-content-center">
         <div class="col-8">
           {% block main_title %} <h1 class="mt-2">Django</h1> {% endblock %}

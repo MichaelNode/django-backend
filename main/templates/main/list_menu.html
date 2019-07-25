@@ -2,7 +2,7 @@
 
 {% block head_title %} Menu List {% endblock %}
 
-{% block main_title %} <h1 class="mt-2">Menu</h1> {% endblock %}
+{% block main_title %} <h1 class="mt-2">All Menus</h1> {% endblock %}
 {% block content %}
 
 <table class="table">
@@ -23,15 +23,13 @@
                 <td>{{ menu.desserts }}</td>
                 <td>{{ menu.menu_date }}</td>
                 <td>
-                <a  href="#">details</a>
-                <a  href="#">edit</a>
-                <a  href="#">delete</a>
+                <a  href="{% url 'menu_edit' menu.id %}">edit</a>
                 </td>
             </tr>
         {% endfor %}
     </tbody>
 </table>
-
+{% include "pagination.html" %}
 {% endblock %}
 
 

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block head_title %} Orders List {% endblock %}
+
+{% block main_title %} <h1 class="mt-2">Order List</h1> {% endblock %}
+{% block content %}
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Menu</th>
+                <th>Customization</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+                <tr>
+                    <td>{{ order.menu }}</td>
+                    <td>{{ order.customization }}</td>
+                    <td>{{ order.order_date }}</td>
+                    <td>
+                    <a  href="#">details</a>
+                    <a  href="{% url 'menu_edit' order.id %}">edit</a>
+                    <a  href="#">delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% include "pagination.html" %}
+{% endblock %}

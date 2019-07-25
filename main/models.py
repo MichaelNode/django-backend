@@ -2,16 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
-class Employee(models.Model):
+from cornershop import settings
 
-    name = models.CharField(max_length=100, null=False)
-    last_name = models.CharField(max_length=100, null=False) 
-    email = models.EmailField(unique=True,null=False)
-    created = models.DateTimeField(auto_now_add=True) 
-    updated = models.DateField(auto_now=True)
-
-    def __str__(self):
-        return '{0}'.format(self.name)
 
 class Menu(models.Model):
 
@@ -20,16 +12,19 @@ class Menu(models.Model):
     desserts = models.CharField(max_length=100, null=False)
     menu_date = models.DateTimeField(null=False)
     created = models.DateTimeField(auto_now_add=True) 
-    updated = models.DateField(auto_now=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return "%s, %s Y %s" % (self.main_course, self.starter, self.desserts)
+
 
 class Order(models.Model):
 
-    employee = models.ForeignKey(User, on_delete=models.CASCADE)
+    employee = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     menu = models.ForeignKey(Menu, on_delete=models.CASCADE)
     customization = models.TextField(null=True)
-    order_date = models.DateTimeField(null=False)
-    created = models.DateTimeField(auto_now_add=True) 
-    updated = models.DateField(auto_now=True)
+    order_date = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
   
 

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block head_title %} Menu List {% endblock %}
+
+{% block main_title %} <h1 class="mt-2">Today’s menu</h1> {% endblock %}
+{% block content %}
+
+  <div class="row">
+    {% if menus %}
+      {% for menu in menus %}
+        <div class="col-sm-12 col-xl-6 col-md-6">
+          <div class="card border-success mb-3" style="max-width: 18rem;">
+            <div class="card-header bg-transparent border-success">Option {{ forloop.counter }}</div>
+            <div class="card-body text-success">
+              <h5 class="card-title">Starter</h5>
+              <p class="card-text">{{ menu.starter }}</p>
+                <h5 class="card-title">Main course</h5>
+              <p class="card-text">{{ menu.main_course }}</p>
+                <h5 class="card-title">Desserts</h5>
+              <p class="card-text">{{ menu.desserts }}</p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p>The menu not available</p>
+    {% endif %}
+  </div>
+  {% include "pagination.html" %}
+{% endblock %}
+
+
