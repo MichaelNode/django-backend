@@ -35,8 +35,12 @@ El sistema no tiene límite de creación de menús diarios, automáticamente agr
 ## Proceso de instalación
 
 ## INSTALACIÓN
-Ejecuta el siguiente comando para instalar las dependencias y ejecución de **KeepBlog**
-- Crear y activar entorno``` shell virtualenv env --python=python3 source env/bin/activate ```
+Ejecuta el siguiente comando para instalar las dependencias y ejecución:
+
+- Crear y activar entorno
+``` shell virtualenv env --python=python3 
+source env/bin/activate ```
+
 NOTA: debes tener instalado *virtualenv* para poder crear el entorno virtual
 
 * Instalar depdenceias
@@ -56,8 +60,6 @@ pip install -r requirements.txt
 * Crear superusuario:
 
 	```shell
-	python manage.py makemigrations
-	python manage.py migrate
 	python manage.py createsuperuser
 	```
 NOTA: se debe crear un super usuario para poder crear un Menús y empleados
@@ -68,7 +70,7 @@ NOTA: se debe crear un super usuario para poder crear un Menús y empleados
 	```
 * Correr tarea celery:
 	```shell
-	celery -A cornershop beat -l info
+	celery -A cornershop worker -l info
 	```
 
 ## IMPORTANTE
