@@ -6,24 +6,24 @@ Aplicación desarrollada con **Python** y el Framework **Django** para proporcio
 
 El sistema cuenta con el apartado de administración y el de empleados, a continuación, se especificará las características de cada una.
 
-##Administrador:
+## Administrador:
 	•	Administrador de empleados: el usuario de tipo administrador puede crear, editar y eliminar empleados.
 	•	Administrador de Menús: el usuario de tipo administrador puede crear, editar y eliminar menús.
 	•	Administrador de Órdenes: el usuario de tipo administrador puede ver, editar y eliminar órdenes.
 	•	Envió de notificaciones: el usuario puede enviar recordatorios vía correo electrónico a todos los empleados del menú 	diario disponible en el sistema.
-##Validaciones:
+## Validaciones:
 	•	El sistema cuenta con las siguientes restricciones para el administrador:
 	•	Solo se pueden registrar menús con fecha de hoy o posterior
 	•	Solo se pueden crear menús hasta las 11:00 AM. (Esta validación no afecta a registro con fechas posteriores a la fecha actual)
 	•	Solo se puede editar el menú hasta a las 10:00 AM. (esto con el fin que los empleados tengan un tiempo necesario para ordenar)
 	•	Las notificaciones se pueden enviar hasta las 10:00 AM.
 
-##Empleados:
+## Empleados:
 	•	Registrar y editar ordenes: los empleados pueden registrar y editar una orden de una de las opciones de menús diarias disponible en el sistema.
 	•	Ver listado de menús: los empleados pueden ver las opciones de menú diarias, disponibles en el sistema.
 	•	Ver historial de ordenes: los empleados pueden ver el historial de órdenes que realizaron en el sistema.
 
-Validaciones:
+## Validaciones:
 	El sistema cuenta con las siguientes restricciones para los empleados:
 	o	Solo se puede registrar una orden diaria.
 	o	Solo se pueden registrar las órdenes hasta las 11:00 AM.
