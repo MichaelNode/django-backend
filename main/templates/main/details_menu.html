@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block head_title %} Menu List {% endblock %}
+
+{% block main_title %} <h1 class="mt-2">Menu Details</h1> {% endblock %}
+{% block content %}
+    <p>Starter: {{menu.starter}}</p>
+    <p>Main course: {{menu.main_course}}</p>
+    <p>Desserts: {{menu.desserts}}</p>
+    <p>Date: {{menu.menu_date}}</p>
+{% endblock %}
+
+

@@ -61,3 +61,4 @@ target/
 
 # ignore PyCharm settings
 .idea/
+celerybeat-*

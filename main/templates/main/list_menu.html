@@ -23,7 +23,9 @@
                 <td>{{ menu.desserts }}</td>
                 <td>{{ menu.menu_date }}</td>
                 <td>
-                <a  href="{% url 'menu_edit' menu.id %}">edit</a>
+                    <a  href="{% url 'menu_detail' menu.id %}">Details</a> |
+                    <a  href="{% url 'menu_edit' menu.id %}">Edit</a> |
+                    <a  href="{% url 'menu_delete' menu.id %}">Delete</a>
                 </td>
             </tr>
         {% endfor %}

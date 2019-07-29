@@ -21,9 +21,9 @@
                     <td>{{ order.customization }}</td>
                     <td>{{ order.order_date }}</td>
                     <td>
-                    <a  href="#">details</a>
-                    <a  href="{% url 'menu_edit' order.id %}">edit</a>
-                    <a  href="#">delete</a>
+                        <a  href="{% url 'order_detail' order.id %}">Details</a> |
+                        <a  href="{% url 'order_edit' order.id %}">Edit</a> |
+                        <a  href="{% url 'order_delete' order.id %}">Delete</a>
                     </td>
                 </tr>
             {% endfor %}

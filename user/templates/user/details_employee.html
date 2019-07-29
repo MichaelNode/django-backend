@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block head_title %} Employees Details {% endblock %}
+
+{% block main_title %} <h1 class="mt-2">Employees Details</h1> {% endblock %}
+{% block content %}
+
+    <p>Username: {{employee.username }}</p>
+    <p>Email: {{employee.email}}</p>
+    <p>Country: {{employee.country}}</p>
+    <p>Jobs: {{employee.jobs }}</p>
+
+{% endblock %}
+
+

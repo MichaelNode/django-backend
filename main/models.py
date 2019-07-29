@@ -13,6 +13,7 @@ class Menu(models.Model):
     menu_date = models.DateTimeField(null=False)
     created = models.DateTimeField(auto_now_add=True) 
     updated = models.DateTimeField(auto_now=True)
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     def __str__(self):
         return "%s, %s Y %s" % (self.main_course, self.starter, self.desserts)

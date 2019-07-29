@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block head_title %} Order Details {% endblock %}
+
+{% block main_title %} <h1 class="mt-2">Order Details</h1> {% endblock %}
+{% block content %}
+
+    <p>Menu: {{order.menu}}</p>
+    <p>Customization: {{order.customization}}</p>
+    <p>Date: {{order.order_date}}</p>
+
+{% endblock %}

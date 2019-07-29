@@ -22,9 +22,9 @@
                     <td>{{ employee.country }}</td>
                     <td>{{ employee.jobs }}</td>
                     <td>
-                    <a  href="#">details</a>
-                    <a  href="{% url 'edit_employee' employee.id %}">edit</a>
-                    <a  href="#">delete</a>
+                    <a  href="{% url 'detail_employee' employee.id %}">Details</a> |
+                    <a  href="{% url 'edit_employee' employee.id %}">Edit</a> |
+                    <a  href="{% url 'delete_employee' employee.id %}">Delete</a>
                     </td>
                 </tr>
             {% endfor %}

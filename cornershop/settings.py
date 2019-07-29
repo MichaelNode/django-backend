@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '57qjm31(9)@3_4!l8^&a8yrey05bow(tde_xyz82pj88=$qs&b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'user',
-    'crispy_forms'
+    'crispy_forms',
+    'notification'
 ]
 
 AUTH_USER_MODEL = 'user.MyUser'
@@ -130,3 +131,18 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'home_main'
 LOGOUT_REDIRECT_URL = 'home_main'
+
+
+#Celery
+CELERY_BROKER_URL = 'amqp://localhost'
+
+#Email
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'example@gmail.com'
+EMAIL_HOST_PASSWORD = 'herepass'
+EMAIL_PORT = 587

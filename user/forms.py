@@ -16,7 +16,8 @@ class CustomUserCreationForm(UserCreationForm):
     def clean_username(self):
         username = self.cleaned_data.get('username', '').lower()
         if MyUser.objects.filter(username=username).exists():
-            raise forms.ValidationError('User {0} already exists'.format(username))
+            raise forms.ValidationError(
+                'User {0} already exists'.format(username))
         return username
 
     def clean(self):
@@ -34,7 +35,8 @@ class CustomUserChangeForm(UserChangeForm):
     def clean_username(self):
         username = self.cleaned_data.get('username', '').lower()
         if MyUser.objects.filter(username=username).exists():
-            raise forms.ValidationError('User {0} already exists'.format(username))
+            raise forms.ValidationError(
+                'User {0} already exists'.format(username))
         return username
 
     def clean(self):

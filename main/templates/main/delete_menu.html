@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block head_title %} Menu Delete? {% endblock %}
+
+{% block main_title %} <h1 class="mt-2">Menu Delete?</h1> {% endblock %}
+{% block content %}
+
+    <form  method="post">
+        {% csrf_token %}
+        Are you sure you want to delete this menu?
+        <input class="btn btn-lg btn-danger"  type="submit"  value="Delete"  />
+    </form>
+
+{% endblock %}
+
+
